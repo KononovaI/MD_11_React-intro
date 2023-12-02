@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import deleteIcon from "./assets/delete_icon.png";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ export const ToDoList: React.FC = () => {
     );
   };
 
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   const handleClick = (e: React.FormEvent) => {
     e.preventDefault();
     const newToDo: Item = { id: Date.now(), text: input, completed: false };
@@ -62,7 +67,21 @@ export const ToDoList: React.FC = () => {
             >
               {" "}
               {todo.text}
-            </li> //Definējam todo parametra porpertijus, ko gribam redzēt sarakstā. Un pievienojam eventu
+              <img
+                src={deleteIcon}
+                alt="Delete icon"
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  cursor: "pointer",
+                  marginLeft: "10px",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDelete(todo.id);
+                }}
+              />
+            </li>
           ))}
         </ul>
       </form>
