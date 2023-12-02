@@ -10,7 +10,7 @@ h1 {
   text-align: center;
 }
 
-.wrapper {
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,8 +20,8 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid #ecf01d;
-  padding: 1.5em 3em;
-  font-size: 1em;
+  padding: 1em 3em;
+  font-size: 0.7em;
   cursor: pointer;
   transition: opacity 0.3;
 }
